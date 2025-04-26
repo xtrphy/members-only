@@ -1,0 +1,19 @@
+footer {
+    background: rgba(20, 20, 20, 0.5);
+    backdrop-filter: blur(8px);
+    padding: 20px 0;
+    text-align: center;
+    font-size: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+}
+
+footer a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #fff;
+}

@@ -70,8 +70,63 @@ h6 {
 
 /* ====================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 body {
-    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url('https://images.pexels.com/photos/29708309/pexels-photo-29708309.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Inter', sans-serif;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.greetings {
+    color: white;
+    font-size: 4.5rem;
+    margin-bottom: 1rem;
+}
+
+.join-community-btn {
+    background: linear-gradient(0deg, #4d4d4d, #1a1a1a, #000);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    background-size: 300% 300%;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+.join-community-btn:hover {
+    transform: scale(1.05);
+    background-position: 200% 100%;
+}
+
+.get-started {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3rem;
+}
+
+.get-started p {
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }

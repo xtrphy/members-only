@@ -5,20 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/footer.css">
     <title>OnlyMembers</title>
 </head>
 
 <body>
     <%- include('partials/header') %>
 
-        <% if (isAuthenticated) { %>
-            <h1>Welcome, <%= user.username %>!
-            </h1>
-            <% } else { %>
-                <h1>Welcome, Guest!</h1>
-                <% } %>
+        <section class="hero">
+            <% if (isAuthenticated) { %>
+                <h1 class="greetings">Welcome, <%= user.username %>!
+                </h1>
+                <a class="join-community-btn" href="/community">Join community</a>
+                <% } else { %>
+                    <div class="get-started">
+                        <h1>Join us now!</h1>
+                        <p>A private community of people united by one idea.</p>
+                        <a href="/log-in" class="log-btn">Get Started</a>
+                    </div>
+                    <% } %>
+        </section>
 
-                    <%- include('partials/footer') %>
+        <%- include('partials/footer') %>
+            <script src="https://kit.fontawesome.com/3130acdd01.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

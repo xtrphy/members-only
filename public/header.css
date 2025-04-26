@@ -1,0 +1,63 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    font-weight: 300;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    padding: 0 2rem;
+}
+
+.logo {
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    transition: color 0.15s ease;
+}
+
+.posts {
+    text-decoration: none;
+    color: #aaa;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.posts:hover {
+    color: white;
+}
+
+.logo:hover {
+    color: rgb(190, 190, 190);
+}
+
+.log-form {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.log-btn {
+    background: linear-gradient(0deg, #4d4d4d, #1a1a1a, #000);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    background-size: 300% 300%;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+.log-btn:hover {
+    transform: scale(1.05);
+    background-position: 200% 100%;
+}
