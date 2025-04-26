@@ -90,6 +90,20 @@ section {
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+    color: white;
+}
+
+.hero {
+    height: 100vh;
+}
+
+/* Animation for hero */
+
+.greetings,
+.join-community-btn {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s forwards;
 }
 
 .greetings {
@@ -98,8 +112,15 @@ section {
     margin-bottom: 1rem;
 }
 
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .join-community-btn {
-    background: linear-gradient(0deg, #4d4d4d, #1a1a1a, #000);
+    background: linear-gradient(135deg, #4f4f4f, #222222);
     color: white;
     border: none;
     padding: 8px 20px;
@@ -107,14 +128,14 @@ section {
     font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
-    background-size: 300% 300%;
+    background-size: 200% 300%;
     text-decoration: none;
     transition: all 0.5s ease;
 }
 
 .join-community-btn:hover {
     transform: scale(1.05);
-    background-position: 200% 100%;
+    background-position: 100% 100%;
 }
 
 .get-started {
@@ -129,4 +150,96 @@ section {
 .get-started p {
     font-size: 2rem;
     margin-bottom: 1rem;
+}
+
+/* About Us */
+
+.about-us {
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 80px 20px;
+    color: #ddd;
+}
+
+.about-us .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-us h2 {
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.about-us .subtitle {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #aaa;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 280px;
+}
+
+.about-text h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #eee;
+}
+
+.about-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #bbb;
+}
+
+.about-text ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-text ul li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+    font-size: 18px;
+    color: #bbb;
+}
+
+.about-text ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #ff4c4c;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 280px;
+    height: 400px;
+    background-image: url('https://images.pexels.com/photos/30663176/pexels-photo-30663176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    transition: transform 1s ease;
+}
+
+.about-image:hover {
+    transform: scale(1.025);
 }

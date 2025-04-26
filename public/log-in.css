@@ -1,0 +1,114 @@
+body {
+    position: relative;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://images.pexels.com/photos/29708309/pexels-photo-29708309.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Inter', sans-serif;
+}
+
+.exit {
+    color: #aaa;
+    font-size: 3rem;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.exit:hover {
+    transform: scale(1.1);
+    color: #fff;
+}
+
+body h1 {
+    color: white;
+    font-size: 4rem;
+    margin: 0 0 1.75rem 0;
+}
+
+.form-dark {
+    background: rgba(20, 20, 20, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    backdrop-filter: blur(6px);
+    max-width: 400px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: #ccc;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #2c2c2c;
+    color: #eee;
+    font-size: 16px;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: #777;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    background: #3c3c3c;
+}
+
+.error-message {
+    margin-top: 5px;
+    color: #ff4c4c;
+    font-size: 14px;
+}
+
+.btn-dark {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #4f4f4f, #222222);
+    background-size: 200% 300%;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    margin-top: 10px;
+}
+
+.btn-dark:hover {
+    background-position: 100% 100%;
+}
+
+.signup-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #888;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.signup-link:hover {
+    color: #aaa;
+}

@@ -17,9 +17,14 @@
 .logo {
     text-decoration: none;
     font-size: 2rem;
-    font-weight: 800;
+    font-weight: 100;
+    letter-spacing: 5px;
     color: white;
     transition: color 0.15s ease;
+}
+
+.logo:hover {
+    color: rgb(190, 190, 190);
 }
 
 .posts {
@@ -33,10 +38,6 @@
     color: white;
 }
 
-.logo:hover {
-    color: rgb(190, 190, 190);
-}
-
 .log-form {
     display: flex;
     align-items: center;
@@ -44,7 +45,7 @@
 }
 
 .log-btn {
-    background: linear-gradient(0deg, #4d4d4d, #1a1a1a, #000);
+    background: linear-gradient(135deg, #4f4f4f, #222222);
     color: white;
     border: none;
     padding: 8px 20px;
@@ -52,12 +53,12 @@
     font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
-    background-size: 300% 300%;
+    background-size: 200% 300%;
     text-decoration: none;
     transition: all 0.5s ease;
 }
 
 .log-btn:hover {
     transform: scale(1.05);
-    background-position: 200% 100%;
+    background-position: 100% 100%;
 }

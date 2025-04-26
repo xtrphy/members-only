@@ -4,44 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/log-in.css">
     <title>Log In</title>
 </head>
 
 <body>
+    <a class="exit" href="/"><i class="fa-solid fa-circle-xmark"></i></a>
     <% if (query && query.registered) { %>
         <h1>Registration successful! Please log in.</h1>
         <% } else { %>
             <h1>Log In</h1>
             <% } %>
-                <form action="/log-in" method="POST">
-                    <div>
+                <form action="/log-in" method="POST" class="form-dark">
+                    <div class="form-group">
                         <label for="username">Username:</label>
                         <input type="text" id="username" name="username"
                             value="<%= oldInput ? oldInput.username : '' %>" />
                         <% if (errors && errors.username) { %>
-                            <div style="color: red;">
+                            <div class="error-message">
                                 <%= errors.username %>
                             </div>
                             <% } %>
                     </div>
 
-                    <br>
-
-                    <div>
+                    <div class="form-group">
                         <label for="password">Password:</label>
                         <input type="password" id="password" name="password" />
                         <% if (errors && errors.password) { %>
-                            <div style="color: red;">
+                            <div class="error-message">
                                 <%= errors.password %>
                             </div>
                             <% } %>
                     </div>
 
-                    <br>
-
-                    <button type="submit">Login</button> <a href="/sign-up">Don't have an account yet?</a>
+                    <button type="submit" class="btn-dark">Login</button>
+                    <a href="/sign-up" class="signup-link">Don't have an account yet?</a>
                 </form>
 
+                <script src="https://kit.fontawesome.com/3130acdd01.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
