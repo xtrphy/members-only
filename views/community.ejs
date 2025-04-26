@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/community.css">
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/footer.css">
+    <title>Join Community</title>
+</head>
+
+<body>
+    <%- include('partials/header') %>
+
+        <main>
+            <h1>Join Community</h1>
+
+            <div class="communities">
+                <ul>
+                    <div class="community">
+                        <h1>Anonymous Hackers Club</h1>
+                        <div class="community-image"></div>
+                        <p>9/10 members</p>
+                        <form action="/join-community" method="post">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" required><br>
+                            <button class="join-btn" type="submit">Join</button>
+                        </form>
+                    </div>
+                </ul>
+            </div>
+        </main>
+
+        <%- include('partials/footer') %>
+</body>
+
+</html>

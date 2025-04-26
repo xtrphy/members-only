@@ -59,6 +59,5 @@
 }
 
 .log-btn:hover {
-    transform: scale(1.05);
     background-position: 100% 100%;
 }

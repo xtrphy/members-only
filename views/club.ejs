@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <% if (user && user.role !=='member' ) { %>
+        <h1>You don't have permission to this club</h1>
+        <% } else { %>
+            <h1>
+                <%= title %>
+            </h1>
+            <% } %>
+</body>
+
+</html>

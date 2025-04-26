@@ -6,7 +6,8 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const dotenv = require('dotenv');
 const bcrypt = require('bcryptjs');
-const authRoutes = require('./routes/authRoutes');
+const authRouter = require('./routes/authRoutes');
+const communityRouter = require('./routes/community');
 
 // Set up
 dotenv.config();
@@ -68,7 +69,19 @@ app.get('/', (req, res) => {
 });
 
 // Log-in, Sign-up, Log-out
-app.use('/', authRoutes);
+app.use('/', authRouter);
+
+// Communities list
+app.get('/community', (req, res) => {
+    res.render('community', { isAuthenticated: req.isAuthenticated(), user: req.user });
+});
+
+// Change user's role to member
+app.use('/', communityRouter);
+
+app.get('/club', (req, res) => {
+    res.render('club', { title: 'Anonymous Hackers Club', user: req.user });
+});
 
 
 // Start server
