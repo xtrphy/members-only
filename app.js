@@ -63,7 +63,7 @@ passport.deserializeUser(async (id, done) => {
 
 // Basic routes
 app.get('/', (req, res) => {
-    res.render('index', { title: 'OnlyMembers', user: req.user });
+    res.render('index', { isAuthenticated: req.isAuthenticated(), user: req.user });
 });
 
 // Log-in, Sign-up, Log-out

@@ -4,24 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= title %>
-    </title>
+    <link rel="stylesheet" href="/styles.css">
+    <title>OnlyMembers</title>
 </head>
 
 <body>
-    <% if (locals.user) { %>
-        <h1>
-            <%= title%>
-        </h1>
+    <%- include('partials/header') %>
 
-        <form action="/log-out" method="post">
-            <button type="submit">Log Out</button>
-        </form>
-        <% } else { %>
-            <a href="/log-in">Log In</a>
-            <p>Don't have an account? <a href="/sign-up">Sign Up</a></p>
-            <% } %>
+        <% if (isAuthenticated) { %>
+            <h1>Welcome, <%= user.username %>!
+            </h1>
+            <% } else { %>
+                <h1>Welcome, Guest!</h1>
+                <% } %>
+
+                    <%- include('partials/footer') %>
 </body>
 
 </html>

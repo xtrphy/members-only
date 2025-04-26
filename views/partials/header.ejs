@@ -1,3 +1,21 @@
-<header>
+<header
+    style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; border-bottom: 1px solid #dbdbdb; background-color: #fff;">
+    <div>
+        <a href="/" style="text-decoration: none; font-size: 32px; color: #000;">OnlyMembers</a>
+    </div>
 
+    <div style="flex: 1; max-width: 300px; margin: 0 20px;">
+        <form style="position: relative;">
+            <input type="text" name="q" placeholder="Search"
+                style="width: 100%; padding: 8px 12px; border: 1px solid #dbdbdb; border-radius: 8px; background-color: #fafafa;">
+        </form>
+    </div>
+    <% if (isAuthenticated) { %>
+        <form action="/log-out" method="post" style="display: flex; align-items: center; gap: 20px;">
+            <a href="/" style="color: #000; text-decoration: none; font-size: 24px;">👤</a>
+            <button type="submit">Log Out</button>
+        </form>
+        <% } else { %>
+            <a href="/log-in">Log In</a>
+            <% } %>
 </header>

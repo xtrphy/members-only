@@ -4,19 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= title %>
-    </title>
+    <title>Sign Up</title>
 </head>
 
 <body>
     <h1>Sign Up</h1>
-    <form action="/sign-up" method="POST">
-        <label for="username">Username:</label>
-        <input id="username" name="username" type="text" /><br><br>
-        <label for="password">Password:</label>
-        <input id="password" name="password" type="password" /><br><br>
-        <button type="submit">Sign Up</button>
+
+    <form action="/sign-up" method="post">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" , name="username" required
+                value="<%= oldInput.username ? oldInput.username : '' %>" />
+            <% if (errors.username) { %>
+                <div style="color: red;">
+                    <%= errors.username %>
+                </div>
+                <% } %>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="password">Password:</label>
+            <input id="password" name="password" type="password" required />
+            <% if (errors.password) { %>
+                <div style="color:red;">
+                    <%= errors.password %>
+                </div>
+                <% } %>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="confirmPassword">Confirm password:</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" required />
+            <% if (errors.confirmPassword) { %>
+                <div style="color:red;">
+                    <%= errors.confirmPassword %>
+                </div>
+                <% } %>
+        </div>
+
+        <br>
+
+        <button type="submit">Sign Up</button> <a href="/">Cancel</a>
+
     </form>
 </body>
 

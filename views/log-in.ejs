@@ -4,22 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= title %>
-    </title>
+    <title>Log In</title>
 </head>
 
 <body>
-    <h1>
-        <%= title %>
-    </h1>
-    <form action="/log-in" method="POST">
-        <label for="username">Username</label>
-        <input id="username" name="username" placeholder="username" type="text" /><br><br>
-        <label for="password">Password</label>
-        <input id="password" name="password" type="password" /><br><br>
-        <button type="submit">Log In</button>
-    </form>
+    <% if (query && query.registered) { %>
+        <h1>Registration successful! Please log in.</h1>
+        <% } else { %>
+            <h1>Log In</h1>
+            <% } %>
+                <form action="/log-in" method="POST">
+                    <div>
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username"
+                            value="<%= oldInput ? oldInput.username : '' %>" />
+                        <% if (errors && errors.username) { %>
+                            <div style="color: red;">
+                                <%= errors.username %>
+                            </div>
+                            <% } %>
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" />
+                        <% if (errors && errors.password) { %>
+                            <div style="color: red;">
+                                <%= errors.password %>
+                            </div>
+                            <% } %>
+                    </div>
+
+                    <br>
+
+                    <button type="submit">Login</button> <a href="/sign-up">Don't have an account yet?</a>
+                </form>
 
 </body>
 
