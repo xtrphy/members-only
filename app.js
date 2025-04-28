@@ -2,7 +2,6 @@ const path = require('node:path');
 const pool = require('./db/pool');
 const express = require('express');
 const session = require('express-session');
-const pgSession = require('connect-pg-simple');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const dotenv = require('dotenv');
@@ -19,16 +18,14 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.use(session({
-    store: new pgSession({
+    store: new (require('connect-pg-simple')(session))({
         pool: pool,
-        tableName: 'session'
+        tableName: 'session',
+        pruneSessionInterval: 60
     }),
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false,
-    cookie: {
-        maxAge: 30 * 24 * 60 * 60 * 1000
-    }
+    cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 }
 }));
 
 app.use(passport.session());
