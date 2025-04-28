@@ -28,6 +28,7 @@ app.use(session({
     cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 }
 }));
 
+
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 
