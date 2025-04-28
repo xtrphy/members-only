@@ -55,9 +55,11 @@
                                     <div>
                                         <%= message.content %>
                                     </div>
-                                    <form action="/club/<%= message.id %>/delete" method="post">
-                                        <button class="delete-message" type="submit">✖</button>
-                                    </form>
+                                    <% if (user && user.role==='admin' ) { %>
+                                        <form action="/club/<%= message.id %>/delete" method="post">
+                                            <button class="delete-message" type="submit">✖</button>
+                                        </form>
+                                        <% } %>
                                 </div>
                                 <% }); %>
                                     <% } %>

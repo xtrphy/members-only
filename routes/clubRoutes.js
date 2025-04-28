@@ -61,12 +61,16 @@ router.post('/new-message', messageValidation, async (req, res) => {
 router.post('/:id/delete', async (req, res) => {
     const messageId = req.params.id;
 
-    try {
-        await pool.query('DELETE FROM messages WHERE id = $1', [messageId]);
-        res.redirect('/club');
-    } catch (err) {
-        console.error('Error deleting message', err);
-        res.status(500).send('Server error');
+    if (req.user.role === 'admin') {
+        try {
+            await pool.query('DELETE FROM messages WHERE id = $1', [messageId]);
+            res.redirect('/club');
+        } catch (err) {
+            console.error('Error deleting message', err);
+            res.status(500).send('Server error');
+        }
+    } else {
+        res.render('error')
     }
 });
 
