@@ -121,11 +121,11 @@ section {
 
 .join-community-btn {
     background: linear-gradient(135deg, #4f4f4f, #222222);
-    color: white;
+    color: #aaa;
+    font-weight: 400;
     border: none;
     padding: 8px 20px;
     font-size: 16px;
-    font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
     background-size: 200% 300%;

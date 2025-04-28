@@ -29,7 +29,7 @@ body {
 
 body h1 {
     color: white;
-    font-size: 4rem;
+    font-size: 3rem;
     margin: 0 0 1.75rem 0;
 }
 
@@ -54,7 +54,6 @@ label {
     font-size: 16px;
 }
 
-input[type="password"],
 input[type="text"] {
     padding: 0.9rem;
     border-radius: 8px;
@@ -65,15 +64,8 @@ input[type="text"] {
     transition: border-color 0.3s ease;
 }
 
-input[type="password"]:focus,
 input[type="text"]:focus {
     border-color: #555;
-}
-
-.error-message {
-    margin-top: 5px;
-    color: #ff4c4c;
-    font-size: 14px;
 }
 
 .btn-dark {
@@ -93,17 +85,4 @@ input[type="text"]:focus {
 
 .btn-dark:hover {
     background-position: 100% 100%;
-}
-
-.signup-link {
-    display: block;
-    text-align: center;
-    margin-top: 15px;
-    color: #888;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.signup-link:hover {
-    color: #aaa;
 }

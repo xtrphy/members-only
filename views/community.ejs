@@ -22,10 +22,15 @@
                         <h1>Anonymous Hackers Club</h1>
                         <div class="community-image"></div>
                         <p>9/10 members</p>
-                        <form action="/join-community" method="post">
+                        <form class="community-form" action="/community" method="post">
                             <label for="password">Password:</label>
-                            <input type="password" id="password" name="password" required><br>
-                            <button class="join-btn" type="submit">Join</button>
+                            <input type="password" id="password" name="password" required>
+                            <% if (error) { %>
+                                <div class="error-message">
+                                    <%= error %>
+                                </div>
+                                <% } %>
+                                    <button class="join-btn" type="submit">Join</button>
                         </form>
                     </div>
                 </ul>
@@ -33,6 +38,8 @@
         </main>
 
         <%- include('partials/footer') %>
+
+            <script src="https://kit.fontawesome.com/3130acdd01.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

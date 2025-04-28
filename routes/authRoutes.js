@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../db/pool');
-const { registerValidation, loginValidation } = require('../routes/authValidator');
+const { registerValidation, loginValidation } = require('./authValidator');
 const { validationResult } = require('express-validator');
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
@@ -29,9 +29,10 @@ router.post('/sign-up', registerValidation, async (req, res, next) => {
 
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
-        await pool.query('INSERT INTO users (username, password) VALUES ($1, $2)', [
+        await pool.query('INSERT INTO users (username, password, role) VALUES ($1, $2, $3)', [
             req.body.username,
             hashedPassword,
+            req.body.role
         ]);
 
         res.redirect('/log-in?registered=true');

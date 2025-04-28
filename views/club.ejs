@@ -4,19 +4,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/footer.css">
+    <link rel="stylesheet" href="/club.css">
     <title>
         <%= title %>
     </title>
 </head>
 
 <body>
-    <% if (user && user.role !=='member' ) { %>
-        <h1>You don't have permission to this club</h1>
-        <% } else { %>
-            <h1>
-                <%= title %>
-            </h1>
-            <% } %>
+    <%- include('partials/header') %>
+
+        <% if (user && user.role !=='member' && user.role !=='admin' ) { %>
+            <main>
+                <h1>You don't have permission to this club</h1>
+            </main>
+            <% } else { %>
+                <main>
+                    <section class="grid">
+                        <div class="card">
+                            <div class="username">Brandinator</div>
+                            <div>How are you?</div>
+                        </div>
+                        <div class="card">
+                            <div class="username">Stonster</div>
+                            <div>Have you seen Minecraft movie?</div>
+                        </div>
+                        <div class="card">
+                            <div class="username">Mild Baby</div>
+                            <div>I love this club!</div>
+                        </div>
+                        <div class="card">
+                            <div class="username">DeeKayOh</div>
+                            <div>It's boring here!</div>
+                        </div>
+                        <div class="card">
+                            <div class="username">Damella</div>
+                            <div>Ban this guy!</div>
+                        </div>
+                        <div class="card">
+                            <div class="username">Millerella</div>
+                            <div>I bought a new PC!</div>
+                        </div>
+                        <% if (messages.length> 0) { %>
+                            <% messages.forEach(message=> { %>
+                                <div class="card">
+                                    <div class="username">
+                                        <%= message.author_name %>
+                                    </div>
+                                    <div>
+                                        <%= message.content %>
+                                    </div>
+                                    <form action="/club/<%= message.id %>/delete" method="post">
+                                        <button class="delete-message" type="submit">✖</button>
+                                    </form>
+                                </div>
+                                <% }); %>
+                                    <% } %>
+                    </section>
+
+                    <a class="new-message" href="/club/new-message">New Message</a>
+                </main>
+                <% } %>
+
+                    <%- include('partials/footer') %>
+
+                        <script src="https://kit.fontawesome.com/3130acdd01.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -14,17 +14,20 @@
     <%- include('partials/header') %>
 
         <section class="hero">
-            <% if (isAuthenticated) { %>
+            <% if (isAuthenticated && user.role==='user' ) { %>
                 <h1 class="greetings">Welcome, <%= user.username %>!
                 </h1>
-                <a class="join-community-btn" href="/community">Join community</a>
-                <% } else { %>
+                <a class="join-community-btn" href="/community">View communities</a>
+                <% } else if (!isAuthenticated) { %>
                     <div class="get-started">
                         <h1>Join us now!</h1>
                         <p>A private community of people united by one idea.</p>
                         <a href="/log-in" class="log-btn">Get Started</a>
                     </div>
-                    <% } %>
+                    <% } else { %>
+                        <h1 class="greetings">Welcome back, <%= user.username %>!</h1>
+                        <a class="join-community-btn" href="/club">View club</a>
+                        <% } %>
         </section>
 
         <section class="about-us">

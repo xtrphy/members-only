@@ -1,14 +1,23 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../db/pool');
+require('dotenv').config();
 
-router.post('/join-community', async (req, res) => {
+router.get('/', (req, res) => {
+    if (req.isAuthenticated()) {
+        res.render('community', { isAuthenticated: req.isAuthenticated(), user: req.user, error: '' });
+    } else {
+        res.redirect('/log-in');
+    }
+});
+
+router.post('/', async (req, res) => {
     try {
         const userId = req.user.id;
         const { password } = req.body;
 
-        if (password !== '123456789') {
-            return res.status(400).render('community', { message: 'Incorrect password' });
+        if (password !== process.env.COMMUNITY_PASSWORD) {
+            return res.status(400).render('community', { error: 'Incorrect password', isAuthenticated: req.isAuthenticated(), user: req.user });
         }
 
         await pool.query(
@@ -16,10 +25,10 @@ router.post('/join-community', async (req, res) => {
             ['member', userId]
         );
 
-        res.redirect('club', { title: 'Anonymous Hackers Club' });
+        res.redirect('/club');
     } catch (err) {
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500).render('error', { isAuthenticated: req.isAuthenticated() });
     }
 });
 

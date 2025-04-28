@@ -73,6 +73,7 @@ h6 {
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 body {
+    position: relative;
     margin: 0;
     min-height: 100vh;
     display: flex;
@@ -88,92 +89,19 @@ main {
     flex-grow: 1;
     padding: 4rem 2rem;
     color: #eee;
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-}
-
-.communities {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.community {
-    background: rgba(20, 20, 20, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 2rem;
-    width: 300px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-}
-
-.community h1 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.community-image {
-    width: 100%;
-    height: 150px;
-    background: url('https://images.pexels.com/photos/15919782/pexels-photo-15919782.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center/cover;
-    border-radius: 12px;
-    margin-bottom: 1rem;
-}
-
-p {
-    margin: 1rem 0;
-    font-size: 1.1rem;
-    color: #ccc;
-}
-
-.community-form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-input[type="password"] {
-    padding: 0.5rem;
-    border-radius: 8px;
-    border: 1px solid #333;
-    background: #111;
-    color: #eee;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-input[type="password"]:focus {
-    border-color: #555;
-}
-
-.error-message {
-    margin-top: 5px;
-    color: #ff4c4c;
-    font-size: 14px;
-}
-
-.join-btn {
+.new-message {
     background: linear-gradient(135deg, #4f4f4f, #222222);
-    color: white;
+    color: #aaa;
     border: none;
     padding: 8px 20px;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 400;
     border-radius: 8px;
     cursor: pointer;
     background-size: 200% 300%;
@@ -181,7 +109,51 @@ input[type="password"]:focus {
     transition: all 0.5s ease;
 }
 
-.join-btn:hover {
+.new-message:hover {
     transform: scale(1.05);
     background-position: 100% 100%;
+}
+
+.grid {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 90%;
+    max-width: 1000px;
+    padding-bottom: 50px;
+}
+
+.card {
+    position: relative;
+    background: rgba(20, 20, 20, 0.6);
+    padding: 30px;
+    border-radius: 10px;
+    backdrop-filter: blur(6px);
+    max-width: 400px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #aaa;
+}
+
+.username {
+    font-weight: bold;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+
+.delete-message {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 50%;
 }

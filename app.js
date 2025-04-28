@@ -8,6 +8,7 @@ const dotenv = require('dotenv');
 const bcrypt = require('bcryptjs');
 const authRouter = require('./routes/authRoutes');
 const communityRouter = require('./routes/community');
+const clubRouter = require('./routes/clubRoutes');
 
 // Set up
 dotenv.config();
@@ -71,17 +72,10 @@ app.get('/', (req, res) => {
 // Log-in, Sign-up, Log-out
 app.use('/', authRouter);
 
-// Communities list
-app.get('/community', (req, res) => {
-    res.render('community', { isAuthenticated: req.isAuthenticated(), user: req.user });
-});
+// Communitiy Route
+app.use('/community', communityRouter);
 
-// Change user's role to member
-app.use('/', communityRouter);
-
-app.get('/club', (req, res) => {
-    res.render('club', { title: 'Anonymous Hackers Club', user: req.user });
-});
+app.use('/club', clubRouter);
 
 
 // Start server

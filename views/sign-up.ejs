@@ -21,7 +21,7 @@
             <input type="text" id="username" , name="username" required
                 value="<%= oldInput.username ? oldInput.username : '' %>" />
             <% if (errors.username) { %>
-                <div style="color: red;">
+                <div style="color: red; margin-top: 10px;">
                     <%= errors.username %>
                 </div>
                 <% } %>
@@ -52,6 +52,16 @@
         </div>
 
         <br>
+
+        <div class="form-group">
+            <label for="password">Admin?</label>
+            <input id="adminPassword" name="adminPassword" type="password" placeholder="Not required" />
+            <% if (errors.password) { %>
+                <div style="color:red;">
+                    <%= errors.password %>
+                </div>
+                <% } %>
+        </div>
 
         <button class="btn-dark" type="submit">Sign Up</button>
 
